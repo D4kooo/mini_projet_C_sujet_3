@@ -5,7 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void chiffrement_vigenere(char message[], char cle2[]);
-void dechiffrement_vigenere(char message[], char cle2[]);
+void chiffrement_vigenere(char message[], char cle[]);
+void dechiffrement_vigenere(char message[], char cle[]);
 
 #endif // VIGENERE_H
