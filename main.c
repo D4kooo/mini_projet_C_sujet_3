@@ -34,7 +34,7 @@ int main() {
                 printf("Entrez le décalage pour le chiffrement de Cesar: ");
                 scanf("%d", &shift);
                 getchar();  // Pour consommer le '\n' restant après scanf
-                cesar_encrypt(message, shift);
+                chiffrer_cesar(message, shift);
                 printf("Message chiffre: %s\n", message);
                 break;
 
@@ -45,7 +45,7 @@ int main() {
                 printf("Entrez le decalage pour le dechiffrement de Cesar: ");
                 scanf("%d", &shift);
                 getchar();  // Pour consommer le '\n' restant après scanf
-                cesar_decrypt(message, shift);
+                dechiffrer_cesar(message, shift);
                 printf("Message déchiffre: %s\n", message);
                 break;
 
@@ -56,7 +56,7 @@ int main() {
                 printf("Entrez la cle pour le chiffrement de Vigenere: ");
                 fgets(key, sizeof(key), stdin);
                 key[strcspn(key, "\n")] = '\0';  // Remove newline character
-                vigenere_encrypt(message, key);
+                chiffrer_vigenere(message, key);
                 printf("Message chiffre: %s\n", message);
                 break;
 
@@ -67,7 +67,7 @@ int main() {
                 printf("Entrez la cle pour le déchiffrement de Vigenere: ");
                 fgets(key, sizeof(key), stdin);
                 key[strcspn(key, "\n")] = '\0';  // Remove newline character
-                vigenere_decrypt(message, key);
+                dechiffrer_vigenere(message, key);
                 printf("Message déchiffre: %s\n", message);
                 break;
 

@@ -12,6 +12,6 @@ void cesar_encrypt(char *message, int shift) {
     }
 }
 
-void cesar_decrypt(char *message, int shift) {
+void dechiffrer_cesar(char *message, int shift) {
     cesar_encrypt(message, 26 - shift);
 }
