@@ -1,15 +1,7 @@
 #ifndef CESAR_H
 #define CESAR_H
 
-#include <stdio.h>
-#include <ctype.h>
+void cesar_encrypt(char *message, int shift);
+void cesar_decrypt(char *message, int shift);
 
-/* Déclaration des fonctions */
-
-/* Chiffrement César */
-void chiffrement_cesar(char message[], int cle);
-
-/* Déchiffrement César */
-void dechiffrement_cesar(char message[], int cle);
-
-#endif /* CESAR_H */
+#endif // CESAR_H

@@ -1,71 +1,84 @@
-/******************************************************************************
-*  ASR => 4R2.04                                                              *
-*******************************************************************************
-*                                                                             *
-*  N° de Sujet :             Sujet 3                                          *
-*                                                                             *
-*******************************************************************************
-*                                                                             *
-*  Intitulé :             Chiffrement de Message                              *
-*                                                                             *
-*******************************************************************************
-*                                                                             *
-*  Nom-prénom1 :          Giner Clément                                       *
-*                                                                             *
-*  Nom-prénom2 :          Autret Pierrick                                     *
-*                                                                             *
-*  Nom-prénom3 :                                                              *
-*                                                                             *
-*  Nom-prénom4 :                                                              *
-*                                                                             *
-*******************************************************************************
-*                                                                             *
-*  Nom du fichier :       main.c                                              *
-*                                                                             *
-******************************************************************************/
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "cesar.h"
 #include "vigenere.h"
-#include <stdio.h>
-#include <string.h>
+
+void displayMenu() {
+    printf("===== Menu =====\n");
+    printf("1. Chiffrer avec Cesar\n");
+    printf("2. Déchiffrer avec Cesar\n");
+    printf("3. Chiffrer avec Vigenere\n");
+    printf("4. Déchiffrer avec Vigenere\n");
+    printf("5. Quitter\n");
+    printf("================\n");
+    printf("Choisissez une option: ");
+}
 
 int main() {
-    int choix, cleCesar;
-    char message[1024], cleVigenere[256];
-    
-    printf("Choisissez l'opération :\n");
-    printf("1. Chiffrement\n");
-    printf("2. Déchiffrement\n");
-    scanf("%d", &choix);
-    getchar(); // Pour consommer le caractère de nouvelle ligne après le nombre
+    char message[256];
+    char key[256];
+    int choice;
 
-    printf("Entrez le message : ");
-    gets(message); // Attention à la sécurité de gets dans un vrai programme
+    while (1) {
+        displayMenu();
+        scanf("%d", &choice);
+        getchar();  // Pour consommer le '\n' restant après scanf
 
-    if (choix == 1 || choix == 2) {
-        printf("Choisissez le type de chiffrement :\n");
-        printf("1. César\n");
-        printf("2. Vigenère\n");
-        scanf("%d", &choix);
-        getchar(); // Pour consommer le caractère de nouvelle ligne
+        switch (choice) {
+            case 1:
+                printf("Entrez le message à chiffrer: ");
+                fgets(message, sizeof(message), stdin);
+                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                int shift;
+                printf("Entrez le décalage pour le chiffrement de Cesar: ");
+                scanf("%d", &shift);
+                getchar();  // Pour consommer le '\n' restant après scanf
+                cesar_encrypt(message, shift);
+                printf("Message chiffre: %s\n", message);
+                break;
 
-        if (choix == 1) { // Chiffrement César
-            printf("Entrez la clé (nombre) : ");
-            scanf("%d", &cleCesar);
-            getchar(); // Pour consommer le caractère de nouvelle ligne
-            if (choix == 1) chiffrement_cesar(message, cleCesar);
-            else dechiffrement_cesar(message, cleCesar);
-        } else if (choix == 2) { // Chiffrement Vigenère
-            printf("Entrez la clé (texte) : ");
-            gets(cleVigenere); // Attention à la sécurité de gets dans un vrai programme
-            if (choix == 1) chiffrement_vigenere(message, cleVigenere);
-            else dechiffrement_vigenere(message, cleVigenere);
+            case 2:
+                printf("Entrez le message a déchiffrer: ");
+                fgets(message, sizeof(message), stdin);
+                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                printf("Entrez le decalage pour le dechiffrement de Cesar: ");
+                scanf("%d", &shift);
+                getchar();  // Pour consommer le '\n' restant après scanf
+                cesar_decrypt(message, shift);
+                printf("Message déchiffre: %s\n", message);
+                break;
+
+            case 3:
+                printf("Entrez le message a chiffrer: ");
+                fgets(message, sizeof(message), stdin);
+                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                printf("Entrez la cle pour le chiffrement de Vigenere: ");
+                fgets(key, sizeof(key), stdin);
+                key[strcspn(key, "\n")] = '\0';  // Remove newline character
+                vigenere_encrypt(message, key);
+                printf("Message chiffre: %s\n", message);
+                break;
+
+            case 4:
+                printf("Entrez le message a dechiffrer: ");
+                fgets(message, sizeof(message), stdin);
+                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                printf("Entrez la cle pour le déchiffrement de Vigenere: ");
+                fgets(key, sizeof(key), stdin);
+                key[strcspn(key, "\n")] = '\0';  // Remove newline character
+                vigenere_decrypt(message, key);
+                printf("Message déchiffre: %s\n", message);
+                break;
+
+            case 5:
+                printf("Quitter...\n");
+                exit(0);
+
+            default:
+                printf("Option invalide. Veuillez reessayer.\n");
         }
-    } else {
-        printf("Choix non valide.\n");
-        return 1; // Fin prématurée du programme
     }
 
-    printf("Résultat : %s\n", message);
     return 0;
 }

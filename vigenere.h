@@ -1,11 +1,7 @@
 #ifndef VIGENERE_H
 #define VIGENERE_H
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
-void chiffrement_vigenere(char message[], char cle2[]);
-void dechiffrement_vigenere(char message[], char cle2[]);
+void vigenere_encrypt(char *message, char *key);
+void vigenere_decrypt(char *message, char *key);
 
 #endif // VIGENERE_H
