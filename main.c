@@ -31,13 +31,13 @@
 #include "vigenere.h"
 
 void displayMenu() {
-    printf("===== Menu =====\n");
+    printf("=========== Menu ===========\n");
     printf("1. Chiffrer avec Cesar\n");
     printf("2. Déchiffrer avec Cesar\n");
     printf("3. Chiffrer avec Vigenere\n");
     printf("4. Déchiffrer avec Vigenere\n");
     printf("5. Quitter\n");
-    printf("================\n");
+    printf("============================\n");
     printf("Choisissez une option (1-5): ");
 }
 
