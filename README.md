@@ -21,7 +21,7 @@ git clone git@github.com:D4kooo/mini_projet_C_sujet_3.git
 
 3. Naviguez jusqu'au répertoire du projet avec la commande :
 ```
-cd <nom_du_répertoire>
+cd mini_projet_C_sujet_3
 ```
 
 4. Compilez les fichiers C à l'aide du fichier de la commande dans le makefile
