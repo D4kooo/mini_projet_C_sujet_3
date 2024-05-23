@@ -1,6 +1,6 @@
 #include "cesar.h"
 
-void cesar_encrypt(char *message, int shift) {
+void chiffrer_cesar(char *message, int shift) {
     for (int i = 0; message[i] != '\0'; ++i) {
         char c = message[i];
         if (c >= 'a' && c <= 'z') {
@@ -13,5 +13,5 @@ void cesar_encrypt(char *message, int shift) {
 }
 
 void dechiffrer_cesar(char *message, int shift) {
-    cesar_encrypt(message, 26 - shift);
+    chiffrer_cesar(message, 26 - shift);
 }
