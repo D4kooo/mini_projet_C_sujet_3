@@ -12,7 +12,7 @@ void displayMenu() {
     printf("4. Déchiffrer avec Vigenere\n");
     printf("5. Quitter\n");
     printf("================\n");
-    printf("Choisissez une option: ");
+    printf("Choisissez une option (1-5): ");
 }
 
 int main() {
@@ -31,7 +31,7 @@ int main() {
                 fgets(message, sizeof(message), stdin);
                 message[strcspn(message, "\n")] = '\0';
                 int shift;
-                printf("Entrez le décalage pour le chiffrement de Cesar: ");
+                printf("Entrez la cle pour le chiffrement de Cesar: ");
                 scanf("%d", &shift);
                 getchar();
                 chiffrer_cesar(message, shift);
@@ -42,7 +42,7 @@ int main() {
                 printf("Entrez le message a déchiffrer: ");
                 fgets(message, sizeof(message), stdin);
                 message[strcspn(message, "\n")] = '\0';
-                printf("Entrez le decalage pour le dechiffrement de Cesar: ");
+                printf("Entrez la cle pour le dechiffrement de Cesar: ");
                 scanf("%d", &shift);
                 getchar();
                 dechiffrer_cesar(message, shift);
@@ -68,7 +68,7 @@ int main() {
                 fgets(key, sizeof(key), stdin);
                 key[strcspn(key, "\n")] = '\0';
                 dechiffrer_vigenere(message, key);
-                printf("Message déchiffre: %s\n", message);
+                printf("Message déchiffre: %s\n\n", message);
                 break;
 
             case 5:
