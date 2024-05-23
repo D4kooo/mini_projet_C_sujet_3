@@ -7,9 +7,11 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "*.c",
+                "main.c",
+                "cesar.c",
+                "vigenere.c",
                 "-o",
-                "main.exe"
+                "chiffrement.exe"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
