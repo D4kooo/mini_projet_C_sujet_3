@@ -23,51 +23,51 @@ int main() {
     while (1) {
         displayMenu();
         scanf("%d", &choice);
-        getchar();  // Pour consommer le '\n' restant après scanf
+        getchar();
 
         switch (choice) {
             case 1:
                 printf("Entrez le message à chiffrer: ");
                 fgets(message, sizeof(message), stdin);
-                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                message[strcspn(message, "\n")] = '\0';
                 int shift;
                 printf("Entrez le décalage pour le chiffrement de Cesar: ");
                 scanf("%d", &shift);
-                getchar();  // Pour consommer le '\n' restant après scanf
-                cesar_encrypt(message, shift);
+                getchar();
+                chiffrer_cesar(message, shift);
                 printf("Message chiffre: %s\n", message);
                 break;
 
             case 2:
                 printf("Entrez le message a déchiffrer: ");
                 fgets(message, sizeof(message), stdin);
-                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                message[strcspn(message, "\n")] = '\0';
                 printf("Entrez le decalage pour le dechiffrement de Cesar: ");
                 scanf("%d", &shift);
-                getchar();  // Pour consommer le '\n' restant après scanf
-                cesar_decrypt(message, shift);
+                getchar();
+                dechiffrer_cesar(message, shift);
                 printf("Message déchiffre: %s\n", message);
                 break;
 
             case 3:
                 printf("Entrez le message a chiffrer: ");
                 fgets(message, sizeof(message), stdin);
-                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                message[strcspn(message, "\n")] = '\0';
                 printf("Entrez la cle pour le chiffrement de Vigenere: ");
                 fgets(key, sizeof(key), stdin);
-                key[strcspn(key, "\n")] = '\0';  // Remove newline character
-                vigenere_encrypt(message, key);
+                key[strcspn(key, "\n")] = '\0';
+                chiffrer_vigenere(message, key);
                 printf("Message chiffre: %s\n", message);
                 break;
 
             case 4:
                 printf("Entrez le message a dechiffrer: ");
                 fgets(message, sizeof(message), stdin);
-                message[strcspn(message, "\n")] = '\0';  // Remove newline character
+                message[strcspn(message, "\n")] = '\0';
                 printf("Entrez la cle pour le déchiffrement de Vigenere: ");
                 fgets(key, sizeof(key), stdin);
-                key[strcspn(key, "\n")] = '\0';  // Remove newline character
-                vigenere_decrypt(message, key);
+                key[strcspn(key, "\n")] = '\0';
+                dechiffrer_vigenere(message, key);
                 printf("Message déchiffre: %s\n", message);
                 break;
 
