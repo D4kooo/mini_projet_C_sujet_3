@@ -16,7 +16,7 @@ Pour installer ce projet, suivez ces étapes :
 
 2. Clonez le dépôt sur votre machine locale en utilisant la commande git :
 ```
-git clone git@github.com:D4kooo/mini_projet_C_sujet_3.git
+git clone https://github.com/D4kooo/mini_projet_C_sujet_3.git
 ```
 
 3. Naviguez jusqu'au répertoire du projet avec la commande :

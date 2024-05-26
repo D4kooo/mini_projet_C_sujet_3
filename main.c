@@ -30,6 +30,7 @@
 #include "cesar.h"
 #include "vigenere.h"
 
+// Fonction pour afficher le menu
 void displayMenu() {
     printf("=========== Menu ===========\n");
     printf("1. Chiffrer avec Cesar\n");
@@ -41,17 +42,21 @@ void displayMenu() {
     printf("Choisissez une option (1-5): ");
 }
 
+// Fonction main
 int main() {
     char message[256];
     char key[256];
     int choice;
 
+    // Boucle principale
     while (1) {
+        //Affiche le menu et récupère le choix de l'utilisateur
         displayMenu();
         scanf("%d", &choice);
         getchar();
 
         switch (choice) {
+            //si l'utilisateur veux chiffrer avec césar
             case 1:
                 printf("Entrez le message à chiffrer: ");
                 fgets(message, sizeof(message), stdin);
@@ -64,6 +69,7 @@ int main() {
                 printf("Message chiffre: %s\n", message);
                 break;
 
+            //si l'utilisateur veux déchiffrer avec césar
             case 2:
                 printf("Entrez le message a déchiffrer: ");
                 fgets(message, sizeof(message), stdin);
@@ -74,7 +80,8 @@ int main() {
                 dechiffrer_cesar(message, shift);
                 printf("Message déchiffre: %s\n", message);
                 break;
-
+            
+            //si l'utilisateur veux chiffrer avec Vigenere
             case 3:
                 printf("Entrez le message a chiffrer: ");
                 fgets(message, sizeof(message), stdin);
@@ -86,6 +93,7 @@ int main() {
                 printf("Message chiffre: %s\n", message);
                 break;
 
+            //si l'utilisateur veux déchiffre avec Vigenere
             case 4:
                 printf("Entrez le message a dechiffrer: ");
                 fgets(message, sizeof(message), stdin);
@@ -96,11 +104,12 @@ int main() {
                 dechiffrer_vigenere(message, key);
                 printf("Message déchiffre: %s\n\n", message);
                 break;
-
+            //si l'utilisateur veux quitter
             case 5:
                 printf("Quitter...\n");
                 exit(0);
-
+            
+            // si l'entrer n'est pas bonne
             default:
                 printf("Option invalide. Veuillez reessayer.\n");
         }
